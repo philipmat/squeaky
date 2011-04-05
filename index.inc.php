@@ -113,25 +113,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
         break;
 }
 ?>
-	<h2 style="text-align:left;direction:ltr;"> Latest News : </h2>
-	<?php if($GLOBALS['_config']['show_rss']) : ?>
-		<div id="rss">
-			<?php
-				$text = RSS_Links($GLOBALS['_config']['rssLink'],$GLOBALS['_config']['rssItems']);
-				echo '<marquee behavior="scroll" direction="right" scrollamount="4" >' . $text . '</marquee>';
-			?>
-		</div>
-	<?php endif; ?>
-		
-	<?php if($GLOBALS['_config']['show_favorites']) : ?>
-		<div id="favorites">
-			<?php 
-				foreach ($GLOBALS['_favorites'] as $title => $link) {
-					 echo '<b>[</b>&nbsp<a href="#" onClick="addUrl(\''. $link . '\')">' . $title . "</a>&nbsp<b>]&nbsp&nbsp&nbsp</b> \n\r";
-				}
-			?>
-		</div>
-	<?php endif; ?>
 <h2>Enter URL: </h2>
 	<div align="center">
 		  <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" onsubmit="init();" >

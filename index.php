@@ -30,7 +30,6 @@
 error_reporting(E_ALL);
 header('content-type:text/html;charset=utf-8;');
 require 'init.php';
-require 'rsslib.php';
 //
 // CONFIGURABLE OPTIONS
 //
@@ -45,9 +44,6 @@ $_config            = array
                         'max_file_size'            => 1000000,
                         'allow_hotlinking'         => 0,
                         'upon_hotlink'             => 1,
-						'show_rss'				   => 1,
-						'rssItems'				   => 10,
-						'rssLink'				   => 'http://www.rahesabz.info/feeds/allP/',
 						'show_favorites' 		   => 1,
                         'compress_output'          => 0
                     );
@@ -93,9 +89,6 @@ $_favorites 		= array
 
 $_navItems			= array 
 					(
-						'Facebook'					=> 'http://facebook.com',
-						'YouTube'					=> 'http://youtube.com',
-						'RaheSabz' 					=> 'http://rahesabz.info'
 					);
 					
 $_flags             = array
