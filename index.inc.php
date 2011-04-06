@@ -11,40 +11,26 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
   <title><?php echo $GLOBALS['_config']['script_title']; ?></title>
-  <script language="javascript" type="text/javascript">
-	<!--
+<script language="javascript" type="text/javascript">
 	function prepare(){
-	document.getElementById('address_box').focus();
-	document.getElementById('options').style.display = 'none';
-	document.getElementById('jsOnOff').value = 1; 
+		document.getElementById('address_box').focus();
+		document.getElementById('options').style.display = 'none';
+		document.getElementById('jsOnOff').value = 1; 
 	}
 	function addUrl(url){
-	document.getElementById('address_box').value = url;
+		document.getElementById('address_box').value = url;
 	}
-	
+
 	function showOptions(){
-	document.getElementById('options').style.display = 'show';
+		document.getElementById('options').style.display = 'show';
 	}
-	
-	//-->
-  </script>
-	<script language="javascript" type="text/javascript" src="main.js"></script>
+</script>
+<script language="javascript" type="text/javascript" src="main.js"></script>
 <link rel="stylesheet" type="text/css" href="main.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body onload="prepare();">
 <div id="wrapper">
-	<h1><?php echo $GLOBALS['_config']['script_title']; ?></h1>
-	
-	<div id="nav">
-        <div class="left">
-			<?php
-				foreach($GLOBALS['_navItems'] as $name => $url){
-					echo '<a href="#" onClick="addUrl(\'' . $url . '\')">' . $name . '</a>';
-				}
-			?>
-        </div>
-	</div>
 	
 	
 	<div id="content">

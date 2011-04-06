@@ -2,14 +2,12 @@
 Date: october 27th, 2007
 Author: Richard Shank
 Source: zelunetemplates.com
-*/
+ */
 
 * { padding:0; margin:0; }
 
 body {
 	background-color:#4a6a13;
-	background-image:url(images/bg.gif);
-	background-repeat:repeat-x;
 	font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
 	color:#4a6a13;
@@ -37,8 +35,6 @@ h2 {
 }			
 
 #nav {
-	background-image:url(images/nav.gif);
-	background-repeat:no-repeat;
 	width:624px;
 	height:36px;
 }
@@ -48,18 +44,18 @@ h2 {
 	padding: 10px 0 0 5px;
 }
 
-	#nav .left a {
-		color:#fff;
-		text-decoration:none;
-		padding:6px 8px 12px 8px;
+#nav .left a {
+	color:#fff;
+	text-decoration:none;
+	padding:6px 8px 12px 8px;
+}
+
+#nav .left a:hover {
+	background-color:#4a6a13;
 	}
 
-		#nav .left a:hover {
-			background-color:#4a6a13;
-		}
-		
-#content {
-	background-color:#FFFFFF;
+	#content {
+		background-color:#FFFFFF;
 }
 
 .ad {
@@ -85,14 +81,14 @@ p {
 	color:#fff;
 }
 
-	#footer a:link,a:visited {
-		color:#FFF;
-		text-decoration:none;
-	}
+#footer a:link,a:visited {
+	color:#FFF;
+	text-decoration:none;
+}
 
-		#footer a:hover {
-			text-decoration:underline;
-		}	
+#footer a:hover {
+	text-decoration:underline;
+}	
 
 #go {
 	width:76px;
@@ -152,19 +148,15 @@ p {
 }
 
 #options {
-   list-style-type: none;
-   width: 500px;
-   margin: 5px; padding: 0;
-   text-align: left;
-   border: 1px red;
+   	list-style-type: none;
+   	width: 500px;
+   	margin: 5px; padding: 0;
+   	text-align: left;
 }
 
 #options li { 
-   border-left: 5px solid #ccc;
-   text-align: left;
-   background-color:#FFF;
-   padding: 2px 0;
-   background-color: #EEEBEA;
+   	text-align: left;
+   	padding: 2px 0;
 }
 
 #error, #auth
@@ -194,4 +186,4 @@ p {
 
 
 
-		
+

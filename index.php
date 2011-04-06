@@ -47,49 +47,6 @@ $_config            = array
 						'show_favorites' 		   => 1,
                         'compress_output'          => 0
                     );
-$_favorites 		= array
-					(
-						'Facebook' 					=> 'http://facebook.com',
-						'Twitter' 					=> 'http://twitter.com',
-						'RaheSabz' 					=> 'http://rahesabz.info',
-						'IranGreenVoice'			=> 'http://irangreenvoice.com',
-						'Balatarin' 				=> 'http://balatarin.com',
-						'Donbaleh'					=> 'http://donbaleh.com/',
-						'Youtube' 					=> 'http://youtube.com',
-						'Kaleme' 					=> 'http://kaleme.org',
-						'SahamNews' 				=> 'http://sahamnews.org/',
-						'MizanKhabar'				=> 'http://mizankhabar.net',
-						'AyandeNews' 				=> 'http://ayandenews.com',
-						'RoozOnline' 				=> 'http://roozonline.com',
-						'ParlemanNews' 				=> 'http://parlemannews.ir',
-						'BBCPersian' 				=> 'http://bbc.co.uk/persian',
-						'IranNewsAgancy(INA)' 		=> 'http://irannews-ina.com',
-						'VOAPersian' 				=> 'http://www1.voanews.com/persian',
-						'RadioFarda' 				=> 'http://www.radiofarda.com',
-						'RadioZamane'				=> 'http://radiozamaneh.com',
-						'AkhbarRooz' 				=> 'http://akhbar-rooz.com',
-						'GooyaNews'					=> 'http://news.gooya.eu',
-						'SedayeFarda' 				=> 'http://sedayefarda.com',
-						'IranianUK' 				=> 'http://iranianuk.com',
-						'MohsenSazegara' 			=> 'http://sazegara.net',
-						'AbdolkKarimSoroush'  		=> 'http://drsoroush.com',
-						'MohsenKadivar'				=> 'http://www.kadivar.com',
-						'MohsenMakhmalbaf'			=> 'http://www.makhmalbaf.com',
-						'AlirezaNoorizade'			=> 'http://www.nourizadeh.com',
-						'AkbarAlami' 				=> 'http://akbaralami.com',
-						'EbrahimNabavi' 			=> 'http://enabavi.com/',
-						'KhodNevis' 				=> 'http://www.khodnevis.org/persian/',
-						'NikAhangKowsar'			=> 'http://nikahang.blogspot.com',
-						'AlirezaRezaee'				=> 'http://alirezarezaee1.blogspot.com',
-						'Hiss' 						=> 'http://irhiss.com',
-						'GOrdab' 					=> 'http://gordab.com',
-						'SabzNameh'					=> 'http://sabznameh.com',
-						'A2Freedom'					=> 'http://a2freedom.wordpress.com/'
-						);
-
-$_navItems			= array 
-					(
-					);
 					
 $_flags             = array
                     (
