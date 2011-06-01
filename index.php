@@ -334,8 +334,9 @@ function proxify_css_url($url)
     return $delim . preg_replace('#([\(\),\s\'"\\\])#', '\\$1', complete_url(trim(preg_replace('#\\\(.)#', '$1', trim($url, $delim))))) . $delim;
 }
 
+
 //
-// SET FLAGS
+// {{{ SET FLAGS
 //
 
 if (isset($_POST[$_config['url_var_name']]) && !isset($_GET[$_config['url_var_name']]) && isset($_POST[$_config['flags_var_name']]))
@@ -369,10 +370,13 @@ if ($_iflags !== '')
     }
 }
 
-//
-// DETERMINE URL-ENCODING BASED ON FLAGS
-//
+// }}}
 
+
+
+//
+// {{{ DETERMINE URL-ENCODING BASED ON FLAGS
+//
 if ($_flags['a2_encode']) {
 	function encode_url($url)
     {
@@ -416,6 +420,7 @@ else
         return str_replace(array('&amp;', '&#38;'), '&', rawurldecode($url));
     }
 }
+// }}}
 
 //
 // COMPRESS OUTPUT IF INSTRUCTED
@@ -443,13 +448,13 @@ if ($_system['stripslashes'])
 }
 
 //
-// FIGURE OUT WHAT TO DO (POST URL-form submit, GET form request, regular request, basic auth, cookie manager, show URL-form)
+// {{{ FIGURE OUT WHAT TO DO (POST URL-form submit, GET form request, regular request, basic auth, cookie manager, show URL-form)
 //
 
 if (isset($_POST[$_config['url_var_name']]) && !isset($_GET[$_config['url_var_name']]))
 {   
 	if(isset($_POST['js']) && $_POST['js']){
-	$_POST[$_config['url_var_name']] = a2::decodeUrl4js($_POST[$_config['url_var_name']]);
+		$_POST[$_config['url_var_name']] = a2::decodeUrl4js($_POST[$_config['url_var_name']]);
 	}
     header('Location: ' . $_script_url . '?' . $_config['url_var_name'] . '=' . encode_url($_POST[$_config['url_var_name']]) . '&' . $_config['flags_var_name'] . '=' . base_convert($_iflags, 2, 16));
     exit(0);
@@ -487,9 +492,10 @@ if (isset($_GET[$_config['url_var_name']], $_POST[$_config['basic_auth_var_name'
     $_basic_auth_realm  = base64_decode($_POST[$_config['basic_auth_var_name']]);
     $_basic_auth_header = base64_encode($_POST['username'] . ':' . $_POST['password']);
 }
+// }}}
 
 //
-// SET URL
+// {{{ SET URL
 //
 
 if (strpos($_url, '://') === false)
@@ -516,9 +522,10 @@ else
 {
     show_report(array('which' => 'index', 'category' => 'error', 'group' => 'url', 'type' => 'external', 'error' => 2));
 }
+// }}}
 
 //
-// HOTLINKING PREVENTION
+// {{{ HOTLINKING PREVENTION
 //
 
 if (!$_config['allow_hotlinking'] && isset($_SERVER['HTTP_REFERER']))
@@ -551,15 +558,18 @@ if (!$_config['allow_hotlinking'] && isset($_SERVER['HTTP_REFERER']))
         }
     }
 }
+// }}}
  
 //
-// OPEN SOCKET TO SERVER
+// {{{ OPEN SOCKET TO SERVER
 //
 
 do
 {
     $_retry  = false;
-    $_socket = @fsockopen(($_url_parts['scheme'] === 'https' && $_system['ssl'] ? 'ssl://' : 'tcp://') . $_url_parts['host'], $_url_parts['port'], $err_no, $err_str, 30);
+	//var_dump($_url_parts); exit;
+    $_socket = @fsockopen(($_url_parts['scheme'] === 'https' && $_system['ssl'] ? 'ssl://' : 'tcp://') 
+		. $_url_parts['host'], $_url_parts['port'], $err_no, $err_str, 30);
 
     if ($_socket === false)
     {
@@ -838,9 +848,10 @@ do
     }
 }
 while ($_retry);
+// }}}
 
 //
-// OUTPUT RESPONSE IF NO PROXIFICATION IS NEEDED
+// {{{ OUTPUT RESPONSE IF NO PROXIFICATION IS NEEDED
 //  
 
 if (!isset($_proxify[$_content_type]))
@@ -895,9 +906,10 @@ while (isset($data{0}));
    
 unset($data);
 fclose($_socket);
+// }}}
 
 //
-// MODIFY AND DUMP RESOURCE
+// {{{ MODIFY AND DUMP RESOURCE
 //
 
 if ($_content_type == 'text/css')
@@ -1002,6 +1014,7 @@ else
                     if (isset($attrs['href']))
                     {
                         $rebuild = true;
+						$attrs['title'] = $attrs['href'];
                         $attrs['href'] = complete_url($attrs['href']);
                     }
                     break;
@@ -1185,7 +1198,11 @@ else
         {
             if (!$_frozen_flags[$flag_name])
             {
-                $_url_form .= '<label><input type="checkbox" name="' . $_config['flags_var_name'] . '[' . $flag_name . ']" id="' . $flag_name . '"' . ($flag_value ? ' checked="checked"' : '') . ' /> ' . $_labels[$flag_name][0] . '</label> ';
+                $_url_form .= '<label><input type="checkbox" name="' 
+					. $_config['flags_var_name'] . '[' . $flag_name 
+					. ']" id="' . $flag_name . '"' 
+					. ($flag_value ? ' checked="checked"' : '') 
+					. ' /> ' . $_labels[$flag_name][0] . '</label> ';
             }
         }
 
@@ -1193,6 +1210,7 @@ else
         $_response_body = preg_replace('#\<\s*body(.*?)\>#si', "$0\n$_url_form" , $_response_body, 1);
     }
 }
+// }}}
 
 $_response_keys['content-disposition'] = 'Content-Disposition';
 $_response_headers['content-disposition'][0] = empty($_content_disp) ? ($_content_type == 'application/octet_stream' ? 'attachment' : 'inline') . '; filename="' . $_url_parts['file'] . '"' : $_content_disp;

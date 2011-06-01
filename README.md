@@ -13,4 +13,5 @@ per paragraph 9, I choose to release *squeaky* under GPL v2.
 * --Add title='[original url]' to links--
 * Reduce the number of URL encoding options to just one.
 * Better handling of redirects and url-decode on other errors.
+* Rename index.inc.php and extract the top-header into separate file.
 
