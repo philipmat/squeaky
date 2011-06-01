@@ -115,7 +115,10 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				  {
 					  if (!$GLOBALS['_frozen_flags'][$flag_name])
 					  {
-						  echo '<li id="option"><label><input type="checkbox" name="' . $GLOBALS['_config']['flags_var_name'] . '[' . $flag_name . ']" id="' . $flag_name . '"' . ($flag_value ? ' checked="checked"' : '') . ' />' . $GLOBALS['_labels'][$flag_name][1] . '</label></li>' . "\n";
+						  echo '<li id="option"><label><input type="checkbox" name="' . $GLOBALS['_config']['flags_var_name'] . '[' . $flag_name 
+							  . ']" id="' . $flag_name . '"' 
+							  . ($flag_value ? ' checked="checked"' : '') 
+							  . ' />' . $GLOBALS['_labels'][$flag_name][1] . '</label></li>' . "\n";
 					  }
 				  }
 				  ?>
